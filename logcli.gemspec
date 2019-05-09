@@ -10,17 +10,14 @@ Gem::Specification.new do |spec|
   spec.email         = ["gingray.dev@gmail.com"]
 
   spec.summary       = %q{log fetcher and remote retriveve files}
-  spec.description   = %q{log fetcher and remote retriveve files}
-  spec.homepage      = ""
+  spec.description   = %q{CLI utility for helping works with logs}
+  spec.homepage      = "https://github.com/gingray/logcli"
   spec.license       = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata['allowed_push_host'] = "https://rubygems.org"
   else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
+    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
@@ -30,8 +27,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency 'net-ssh', '~> 5.0.2'
-  spec.add_runtime_dependency 'net-scp', '~> 1.2.1'
+  spec.add_runtime_dependency 'net-ssh', '~> 5.0.2', '>= 5.0.2'
+  spec.add_runtime_dependency 'net-scp', '~> 1.2.1', '>= 1.2.1'
   spec.add_runtime_dependency 'thor', '~> 0.20.3'
 
   spec.add_development_dependency "bundler", "~> 1.16"
