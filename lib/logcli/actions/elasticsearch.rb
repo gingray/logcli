@@ -4,14 +4,14 @@ require 'json'
 module Logcli
   module Actions
     class Elasticsearch
-      attr_reader :filenames, :mapping_file, :buffer, :id, :total_records
+      attr_reader :filenames, :elasticsearch_url, :mapping_file, :buffer, :id, :total_records
       BULK_SIZE = 100
       INDEX_NAME = 'log-index'.freeze
-      DEFAULT_URL = 'http://localhost:9201'.freeze
 
       def initialize opts
         @filenames = opts.fetch(:filenames)
         @mapping_file = opts.fetch(:mapping_file)
+        @elasticsearch_url = opts.fetch(:elasticsearch_url)
         @buffer = []
         @id = 1
         @total_records = 0
@@ -56,7 +56,7 @@ module Logcli
       end
 
       def client
-        @client ||= ::Elasticsearch::Client.new url: DEFAULT_URL, log: true
+        @client ||= ::Elasticsearch::Client.new url: elasticsearch_url, log: true
       end
     end
   end

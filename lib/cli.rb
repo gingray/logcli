@@ -32,6 +32,7 @@ module Logcli
 
     desc "elasticsearch", "push json file to elasticsearch instance"
     option :filenames, type: :array, required: true, banner: 'example1.json example2.json'
+    option :elasticsearch_url, type: :string, required: true, banner: 'http://localhost:9200'
     option :mapping_file, type: :string, required: false, banner: 'example-mapping.json'
 
     def elasticsearch

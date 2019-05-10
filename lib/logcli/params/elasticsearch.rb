@@ -3,7 +3,8 @@ module Logcli
     class Elasticsearch
       FILENAMES = :filenames
       MAPPING_FILE = :mapping_file
-      OPTS = [FILENAMES, MAPPING_FILE].freeze
+      ELASTICSEARCH_URL = :elasticsearch_url
+      OPTS = [FILENAMES, MAPPING_FILE, ELASTICSEARCH_URL].freeze
       attr_accessor(*OPTS)
 
       def initialize opts
@@ -14,7 +15,7 @@ module Logcli
       end
 
       def parse_params
-        { filenames: filenames, mapping_file: mapping_file }
+        { filenames: filenames, mapping_file: mapping_file, elasticsearch_url: elasticsearch_url }
       end
     end
   end

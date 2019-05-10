@@ -1,34 +1,37 @@
 # Logcli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/logcli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'logcli'
+logcli is tool for easy working with logs but its opionated my work flow to working with logs looks like
+fetch json logs from lines and than push it to elasticsearch for future analytics my logs stored
+as JSON objects. Example how my logs look like
+```text
+I, [2019-05-09T17:00:16.049805 #57671]  INFO -- : {"evt_type":"FileUpload":"info","time":"2019-05-09T15:00:16+0000","payload":{"time_elapsed_human":"00:00:00.874","time_elapsed":0.874553},"trace_id":"cd5916a6-14b7-4628-bdda-334e4285a4e0"}
+```
+as you can see there a log prefixer like `I, [2019-05-09T17:00:16.049805 #57671]  INFO -- : `
+that's why its not a JSON but than goes a JSON object that I want to extract
+I'm using this command to extract JSON from log line
+```bash
+logcli extract_json --filenames=log1.log log2.log
 ```
 
-And then execute:
+as result tool create in the SAME directory files with names `log1_json.log, log2_json.log`
 
-    $ bundle
+than I'm push data to ES for analytics using ES + Kibana
 
-Or install it yourself as:
+```bash
+logcli elasticsearch --filenames=events_json.log --elasticsearch_url=http://localhost:9201
+```
 
-    $ gem install logcli
+```bash
+logcli --help #for more command line options
+```
 
-## Usage
+tool using batch API and push 100 records and the time
 
-TODO: Write usage instructions here
+Pretty dummy stuff hah
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+In active - passive development
 
 ## Contributing
 
