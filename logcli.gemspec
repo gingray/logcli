@@ -28,8 +28,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency 'elasticsearch', '~> 7.0'
-  spec.add_runtime_dependency 'net-scp', '~> 1.2.1'
-  spec.add_runtime_dependency 'net-ssh', '~> 5.0.2'
   spec.add_runtime_dependency 'net-ssh', '~> 5.0.2', '>= 5.0.2'
   spec.add_runtime_dependency 'net-scp', '~> 1.2.1', '>= 1.2.1'
   spec.add_runtime_dependency 'thor', '~> 0.20.3'

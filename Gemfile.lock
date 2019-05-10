@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     logcli (0.1.0)
+      elasticsearch (~> 7.0)
       net-scp (~> 1.2.1, >= 1.2.1)
       net-ssh (~> 5.0.2, >= 5.0.2)
       thor (~> 0.20.3)
