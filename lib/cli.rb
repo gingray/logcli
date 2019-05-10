@@ -29,5 +29,15 @@ module Logcli
       json = Logcli::Actions::ExtractJson.new(params.parse_params)
       json.call
     end
+
+    desc "elasticsearch", "push json file to elasticsearch instance"
+    option :filenames, type: :array, required: true, banner: 'example1.json example2.json'
+    option :mapping_file, type: :string, required: false, banner: 'example-mapping.json'
+
+    def elasticsearch
+      params = Logcli::Params::Elasticsearch.new options
+      json = Logcli::Actions::Elasticsearch.new(params.parse_params)
+      json.call
+    end
   end
 end
