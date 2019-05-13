@@ -1,0 +1,16 @@
+{  
+  "mappings":{  
+    "properties":{
+    	"payload": {
+    		"type": "object",
+    		"properties": {
+    			"time_elapsed": {
+    				"type": "date",
+    				"format":"HH:mm:ss.SSS"
+    			}
+    		}
+    	}
+
+    }
+  }
+}
